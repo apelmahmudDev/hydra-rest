@@ -1,0 +1,32 @@
+<svg width="900" height="420" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="sleepBg" x1="0" y1="0" x2="900" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#F8F5FF"/>
+      <stop offset="1" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(680 115) rotate(90) scale(170 260)">
+      <stop stop-color="#C4B5FD" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#C4B5FD" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="420" rx="32" fill="url(#sleepBg)"/>
+  <ellipse cx="700" cy="125" rx="270" ry="170" fill="url(#glow)"/>
+  <circle cx="760" cy="110" r="48" fill="#EDE9FE"/>
+  <circle cx="783" cy="92" r="48" fill="#F8F5FF"/>
+  <path d="M620 175C650 135 716 136 744 176H620Z" fill="#E9D5FF" fill-opacity="0.45"/>
+  <path d="M720 175C748 130 820 132 850 176H720Z" fill="#DBEAFE" fill-opacity="0.55"/>
+  <path d="M575 190C610 155 670 158 700 190H575Z" fill="#EEF2FF" fill-opacity="0.85"/>
+  <circle cx="625" cy="70" r="3" fill="#A78BFA" opacity="0.8"/>
+  <circle cx="705" cy="55" r="2.5" fill="#818CF8" opacity="0.65"/>
+  <circle cx="835" cy="88" r="3" fill="#A78BFA" opacity="0.75"/>
+  <circle cx="795" cy="185" r="2.5" fill="#818CF8" opacity="0.5"/>
+  <circle cx="560" cy="135" r="2.5" fill="#C4B5FD" opacity="0.7"/>
+  <path d="M665 115L670 126L681 131L670 136L665 147L660 136L649 131L660 126L665 115Z" fill="#A78BFA" opacity="0.65"/>
+  <path d="M820 45L824 54L833 58L824 62L820 71L816 62L807 58L816 54L820 45Z" fill="#93C5FD" opacity="0.7"/>
+  <path d="M742 215L745 222L752 225L745 228L742 235L739 228L732 225L739 222L742 215Z" fill="#C4B5FD" opacity="0.6"/>
+  <circle cx="170" cy="335" r="120" fill="#EEF2FF" opacity="0.45" filter="url(#blur)"/>
+</svg>

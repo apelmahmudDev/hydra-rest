@@ -1,0 +1,31 @@
+<svg width="900" height="420" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="glowDark" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(690 118) rotate(90) scale(175 275)">
+      <stop stop-color="#8B5CF6" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="softCloud" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(735 220) rotate(90) scale(80 190)">
+      <stop stop-color="#6366F1" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#6366F1" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="blurDark" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
+  </defs>
+  <ellipse cx="700" cy="125" rx="270" ry="170" fill="url(#glowDark)"/>
+  <ellipse cx="735" cy="220" rx="190" ry="80" fill="url(#softCloud)"/>
+  <circle cx="760" cy="110" r="48" fill="#A78BFA" opacity="0.22"/>
+  <circle cx="783" cy="92" r="48" fill="#1B2236"/>
+  <path d="M620 175C650 135 716 136 744 176H620Z" fill="#A78BFA" fill-opacity="0.14"/>
+  <path d="M720 175C748 130 820 132 850 176H720Z" fill="#60A5FA" fill-opacity="0.12"/>
+  <path d="M575 190C610 155 670 158 700 190H575Z" fill="#818CF8" fill-opacity="0.12"/>
+  <circle cx="625" cy="70" r="3" fill="#C4B5FD" opacity="0.42"/>
+  <circle cx="705" cy="55" r="2.5" fill="#93C5FD" opacity="0.34"/>
+  <circle cx="835" cy="88" r="3" fill="#C4B5FD" opacity="0.4"/>
+  <circle cx="795" cy="185" r="2.5" fill="#93C5FD" opacity="0.28"/>
+  <circle cx="560" cy="135" r="2.5" fill="#C4B5FD" opacity="0.32"/>
+  <path d="M665 115L670 126L681 131L670 136L665 147L660 136L649 131L660 126L665 115Z" fill="#A78BFA" opacity="0.38"/>
+  <path d="M820 45L824 54L833 58L824 62L820 71L816 62L807 58L816 54L820 45Z" fill="#93C5FD" opacity="0.4"/>
+  <path d="M742 215L745 222L752 225L745 228L742 235L739 228L732 225L739 222L742 215Z" fill="#C4B5FD" opacity="0.32"/>
+  <circle cx="170" cy="335" r="120" fill="#6366F1" opacity="0.1" filter="url(#blurDark)"/>
+</svg>

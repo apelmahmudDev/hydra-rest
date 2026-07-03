@@ -389,7 +389,22 @@ input {
 }
 
 .sleep-card {
-  background: linear-gradient(160deg, color-mix(in srgb, var(--sleep-500) 8%, var(--surface)), var(--surface) 60%);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(248, 245, 255, 0.58)),
+    url("./assets/sleep-card-bg.svg");
+  background-size: cover, 135% auto;
+  background-position: center, 58% 22%;
+  background-repeat: no-repeat;
+}
+
+[data-theme="dark"] .sleep-card {
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(160deg, rgba(33, 41, 66, 0.72), rgba(23, 30, 47, 0.78) 62%),
+    url("./assets/sleep-card-bg-dark.svg");
+  background-size: cover, 128% auto;
+  background-position: center, 58% 18%;
+  background-repeat: no-repeat;
 }
 
 /* =========================================================
