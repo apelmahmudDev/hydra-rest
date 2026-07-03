@@ -3,6 +3,8 @@
    Design tokens (light mode default, dark mode via [data-theme="dark"])
    ========================================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
 :root {
   /* Water — blue/cyan */
   --water-500: #0ea5e9;
@@ -39,7 +41,8 @@
   --radius-md: 16px;
   --radius-lg: 22px;
 
-  --font-body: 'Segoe UI', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --font-main: 'Manrope', sans-serif;
+  --font-body: var(--font-main);
 }
 
 [data-theme="dark"] {
@@ -76,10 +79,20 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3 { margin: 0; }
+h1, h2, h3 {
+  margin: 0;
+  font-weight: 800;
+}
+
+p,
+label,
+input {
+  font-weight: 500;
+}
 
 button {
   font-family: inherit;
+  font-weight: 700;
   cursor: pointer;
   border: none;
   background: none;
@@ -543,14 +556,16 @@ input {
 
 .input-with-suffix input[type="number"] {
   width: 100%;
+  padding-right: 48px;
 }
 
 .input-suffix {
   position: absolute;
-  right: 12px;
+  right: 24px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 12px;
+  line-height: 1;
   color: var(--text-muted);
   pointer-events: none;
 }
@@ -559,19 +574,6 @@ input {
   position: relative;
   display: inline-flex;
   align-items: center;
-}
-
-.editable-field input {
-  padding-right: 32px;
-}
-
-.edit-icon {
-  position: absolute;
-  right: 10px;
-  color: var(--text-muted);
-  pointer-events: none;
-  width: 14px;
-  height: 14px;
 }
 
 .btn-secondary {
@@ -600,12 +602,12 @@ input {
 
 .goal-row input {
   width: 90px;
-  padding: 6px 30px 6px 10px;
+  padding: 6px 24px 6px 12px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border);
   background: var(--surface-soft);
   color: var(--text-primary);
-  text-align: right;
+  text-align: center;
 }
 
 /* =========================================================
