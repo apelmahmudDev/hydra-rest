@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>HydraRest — Water &amp; Sleep Tracker</title>
+		<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 		<link rel="stylesheet" href="style.css" />
 	</head>
 	<body>
@@ -189,7 +190,75 @@
 			<div class="header-inner">
 				<div class="brand">
 					<span class="brand-icon" aria-hidden="true">
-						<svg class="icon"><use href="#icon-droplet"></use></svg>
+						<svg
+							width="48"
+							height="48"
+							viewBox="0 0 48 48"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<defs>
+								<linearGradient
+									id="logoBg"
+									x1="8"
+									y1="6"
+									x2="42"
+									y2="44"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop stop-color="#38BDF8" />
+									<stop offset="0.55" stop-color="#2563EB" />
+									<stop offset="1" stop-color="#7C3AED" />
+								</linearGradient>
+								<linearGradient
+									id="logoDrop"
+									x1="24"
+									y1="12"
+									x2="24"
+									y2="35"
+									gradientUnits="userSpaceOnUse"
+								>
+									<stop stop-color="#FFFFFF" />
+									<stop offset="1" stop-color="#DFF7FF" />
+								</linearGradient>
+								<filter
+									id="logoSoftShadow"
+									x="0"
+									y="0"
+									width="48"
+									height="48"
+									filterUnits="userSpaceOnUse"
+								>
+									<feDropShadow
+										dx="0"
+										dy="6"
+										stdDeviation="6"
+										flood-color="#2563EB"
+										flood-opacity="0.28"
+									/>
+								</filter>
+							</defs>
+							<rect
+								x="4"
+								y="4"
+								width="40"
+								height="40"
+								rx="14"
+								fill="url(#logoBg)"
+								filter="url(#logoSoftShadow)"
+							/>
+							<path
+								d="M24 12C24 12 15.5 22.1 15.5 28.3C15.5 33.1 19.3 37 24 37C28.7 37 32.5 33.1 32.5 28.3C32.5 22.1 24 12 24 12Z"
+								fill="url(#logoDrop)"
+							/>
+							<path
+								d="M28.8 20.2C27.3 20.7 26.2 22.1 26.2 23.8C26.2 26 28 27.8 30.2 27.8C31.3 27.8 32.2 27.4 32.9 26.7C32.4 29.3 30.1 31.2 27.4 31.2C24.3 31.2 21.8 28.7 21.8 25.6C21.8 22.9 23.7 20.6 26.3 20.1C27 20 27.9 20 28.8 20.2Z"
+								fill="#2563EB"
+								fill-opacity="0.35"
+							/>
+							<circle cx="18.8" cy="17.8" r="1.6" fill="white" fill-opacity="0.75" />
+							<circle cx="34" cy="15.5" r="1.2" fill="white" fill-opacity="0.65" />
+						</svg>
 					</span>
 					<div class="brand-text">
 						<h1>HydraRest</h1>

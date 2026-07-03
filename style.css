@@ -189,20 +189,17 @@ input {
 }
 
 .brand-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 12px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(140deg, var(--water-500), var(--sleep-500));
-  box-shadow: 0 6px 14px rgba(14, 165, 233, 0.22);
 }
 
-.brand-icon .icon {
-  width: 18px;
-  height: 18px;
-  color: #ffffff;
+.brand-icon svg {
+  width: 40px;
+  height: 40px;
+  display: block;
 }
 
 .brand-text h1 {
