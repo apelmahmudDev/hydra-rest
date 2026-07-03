@@ -2,102 +2,135 @@
    Cards
    ========================================================= */
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-radius: var(--radius-lg);
+	padding: 22px;
+	box-shadow: var(--shadow-sm);
+	transition:
+		transform 0.25s ease,
+		box-shadow 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
+	transform: translateY(-3px);
+	box-shadow: var(--shadow-md);
 }
 
 .card-header {
-  margin-bottom: 14px;
+	margin-bottom: 14px;
 }
 
 .card-header h2 {
-  font-size: 16px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+	font-size: 16px;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
 .card-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+	width: 32px;
+	height: 32px;
+	border-radius: 9px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
 }
 
 .card-icon .icon {
-  width: 17px;
-  height: 17px;
+	width: 17px;
+	height: 17px;
 }
 
 .card-icon-water {
-  background: color-mix(in srgb, var(--water-500) 16%, var(--surface));
-  color: var(--water-500);
+	background: color-mix(in srgb, var(--water-500) 16%, var(--surface));
+	color: var(--water-500);
 }
 
 .card-icon-sleep {
-  background: color-mix(in srgb, var(--sleep-500) 16%, var(--surface));
-  color: var(--sleep-500);
+	background: color-mix(in srgb, var(--sleep-500) 16%, var(--surface));
+	color: var(--sleep-500);
 }
 
 .card-icon-streak {
-  background: color-mix(in srgb, var(--warning-500) 16%, var(--surface));
-  color: var(--warning-500);
+	background: color-mix(in srgb, var(--warning-500) 16%, var(--surface));
+	color: var(--warning-500);
 }
 
 .card-icon-weekly {
-  background: color-mix(in srgb, var(--success-500) 16%, var(--surface));
-  color: var(--success-500);
+	background: color-mix(in srgb, var(--success-500) 16%, var(--surface));
+	color: var(--success-500);
 }
 
 .water-card {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(240, 253, 255, 0.6)),
-    url("./assets/water-card-bg.svg");
-  background-size: cover, 135% auto;
-  background-position: center, 58% 22%;
-  background-repeat: no-repeat;
+	background:
+		linear-gradient(
+			135deg,
+			rgba(255, 255, 255, 0.74),
+			rgba(240, 253, 255, 0.6)
+		),
+		url("../../assets/water-card-bg.svg");
+	background-size:
+		cover,
+		135% auto;
+	background-position:
+		center,
+		58% 22%;
+	background-repeat: no-repeat;
 }
 
 [data-theme="dark"] .water-card {
-  background-color: var(--surface);
-  background-image:
-    linear-gradient(to bottom, rgba(23, 30, 47, 0) 0%, rgba(23, 30, 47, 0.1) 48%, rgba(23, 30, 47, 0.82) 66%, rgba(23, 30, 47, 0.98) 100%),
-    linear-gradient(160deg, rgba(24, 38, 59, 0.72), rgba(23, 30, 47, 0.78) 62%),
-    url("./assets/water-card-bg-dark.svg");
-  background-size: cover, cover, 128% auto;
-  background-position: center, center, 58% 18%;
-  background-repeat: no-repeat;
+	background-color: var(--surface);
+	background-image:
+		linear-gradient(
+			to bottom,
+			rgba(23, 30, 47, 0) 0%,
+			rgba(23, 30, 47, 0.1) 48%,
+			rgba(23, 30, 47, 0.82) 66%,
+			rgba(23, 30, 47, 0.98) 100%
+		),
+		linear-gradient(160deg, rgba(24, 38, 59, 0.72), rgba(23, 30, 47, 0.78) 62%),
+		url("../../assets/water-card-bg-dark.svg");
+	background-size:
+		cover,
+		cover,
+		128% auto;
+	background-position:
+		center,
+		center,
+		58% 18%;
+	background-repeat: no-repeat;
 }
 
 .sleep-card {
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(248, 245, 255, 0.58)),
-    url("./assets/sleep-card-bg.svg");
-  background-size: cover, 135% auto;
-  background-position: center, 58% 22%;
-  background-repeat: no-repeat;
+	background:
+		linear-gradient(
+			135deg,
+			rgba(255, 255, 255, 0.72),
+			rgba(248, 245, 255, 0.58)
+		),
+		url("../../assets/sleep-card-bg.svg");
+	background-size:
+		cover,
+		135% auto;
+	background-position:
+		center,
+		58% 22%;
+	background-repeat: no-repeat;
 }
 
 [data-theme="dark"] .sleep-card {
-  background-color: var(--surface);
-  background-image:
-    linear-gradient(160deg, rgba(33, 41, 66, 0.72), rgba(23, 30, 47, 0.78) 62%),
-    url("./assets/sleep-card-bg-dark.svg");
-  background-size: cover, 128% auto;
-  background-position: center, 58% 18%;
-  background-repeat: no-repeat;
+	background-color: var(--surface);
+	background-image:
+		linear-gradient(160deg, rgba(33, 41, 66, 0.72), rgba(23, 30, 47, 0.78) 62%),
+		url("../../assets/sleep-card-bg-dark.svg");
+	background-size:
+		cover,
+		128% auto;
+	background-position:
+		center,
+		58% 18%;
+	background-repeat: no-repeat;
 }
-
