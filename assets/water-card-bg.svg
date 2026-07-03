@@ -1,0 +1,41 @@
+<svg width="900" height="420" viewBox="0 0 900 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waterBg" x1="0" y1="0" x2="900" y2="420" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.45" stop-color="#F0FDFF"/>
+      <stop offset="1" stop-color="#E0F2FE"/>
+    </linearGradient>
+    <radialGradient id="blueGlow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(700 130) rotate(90) scale(190 280)">
+      <stop stop-color="#67E8F9" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="waveOne" x1="0" y1="285" x2="900" y2="285" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BAE6FD" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#67E8F9" stop-opacity="0.45"/>
+    </linearGradient>
+    <linearGradient id="waveTwo" x1="0" y1="330" x2="900" y2="330" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7DD3FC" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0.35"/>
+    </linearGradient>
+    <filter id="softBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+  </defs>
+  <rect width="900" height="420" rx="32" fill="url(#waterBg)"/>
+  <ellipse cx="700" cy="125" rx="280" ry="175" fill="url(#blueGlow)"/>
+  <path d="M0 285C80 250 150 330 240 292C330 254 390 250 480 288C570 326 640 245 730 280C805 309 850 300 900 275V420H0V285Z" fill="url(#waveOne)"/>
+  <path d="M0 330C90 292 165 370 260 332C350 296 430 296 520 334C610 372 680 295 765 326C825 348 865 345 900 320V420H0V330Z" fill="url(#waveTwo)"/>
+  <circle cx="720" cy="105" r="54" fill="#BAE6FD" fill-opacity="0.45"/>
+  <circle cx="748" cy="85" r="54" fill="#F0FDFF" fill-opacity="0.85"/>
+  <path d="M675 55C675 55 650 88 650 110C650 130 662 144 680 144C698 144 710 130 710 110C710 88 675 55 675 55Z" fill="#38BDF8" fill-opacity="0.16"/>
+  <path d="M805 175C805 175 785 201 785 219C785 235 795 246 810 246C825 246 835 235 835 219C835 201 805 175 805 175Z" fill="#22D3EE" fill-opacity="0.18"/>
+  <path d="M580 160C580 160 563 182 563 197C563 210 572 220 585 220C598 220 607 210 607 197C607 182 580 160 580 160Z" fill="#7DD3FC" fill-opacity="0.18"/>
+  <circle cx="610" cy="78" r="3" fill="#06B6D4" opacity="0.55"/>
+  <circle cx="790" cy="55" r="2.5" fill="#0284C7" opacity="0.45"/>
+  <circle cx="835" cy="130" r="3" fill="#06B6D4" opacity="0.45"/>
+  <circle cx="545" cy="115" r="2.5" fill="#38BDF8" opacity="0.5"/>
+  <circle cx="745" cy="215" r="2.5" fill="#0EA5E9" opacity="0.42"/>
+  <path d="M635 135C657 125 680 125 703 135" stroke="#38BDF8" stroke-opacity="0.35" stroke-width="5" stroke-linecap="round"/>
+  <path d="M720 250C742 240 765 240 788 250" stroke="#22D3EE" stroke-opacity="0.35" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="165" cy="330" r="125" fill="#BAE6FD" opacity="0.35" filter="url(#softBlur)"/>
+</svg>
