@@ -144,8 +144,7 @@
     confirmResetAll: document.getElementById('confirmResetAll'),
 
     // Theme
-    darkModeToggle: document.getElementById('darkModeToggle'),
-    darkModeIcon: document.getElementById('darkModeIcon')
+    darkModeToggle: document.getElementById('darkModeToggle')
   };
 
   /* =========================================================
@@ -548,11 +547,9 @@
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.setAttribute('data-theme', 'dark');
-      el.darkModeIcon.textContent = '☀️';
       el.darkModeToggle.setAttribute('aria-pressed', 'true');
     } else {
       document.documentElement.removeAttribute('data-theme');
-      el.darkModeIcon.textContent = '🌙';
       el.darkModeToggle.setAttribute('aria-pressed', 'false');
     }
   }
