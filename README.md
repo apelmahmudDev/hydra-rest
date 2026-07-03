@@ -1,7 +1,7 @@
 # HydraRest
 
 <p align="center">
-  <img src="./assets/favicon.svg" alt="HydraRest logo" width="96" height="96" />
+  <img src="./assets/readme-logo.svg" alt="HydraRest logo" width="96" height="96" />
 </p>
 
 <h3 align="center">Water &amp; Sleep Tracker</h3>
@@ -54,3 +54,7 @@ HydraRest helps you track two core recovery habits in one place:
 ## Source
 
 The app is built as a small static front end, so the source is easy to inspect and extend. The main entry point is [index.html](./index.html), and the visual assets live in [assets](./assets).
+
+---
+
+Built with HTML, CSS, and JavaScript.
