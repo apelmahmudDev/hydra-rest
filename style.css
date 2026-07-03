@@ -127,27 +127,28 @@ input {
    Header
    ========================================================= */
 .app-header {
-  position: sticky;
-  top: 0;
   z-index: 20;
-  background: color-mix(in srgb, var(--surface) 85%, transparent);
-  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--surface) 78%, transparent);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--border);
 }
 
 .header-inner {
   max-width: 1100px;
   margin: 0 auto;
-  padding: 16px 20px;
+  padding: 14px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  min-width: 0;
 }
 
 .icon-sprite {
@@ -176,14 +177,14 @@ input {
 }
 
 .brand-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(140deg, var(--water-500), var(--sleep-500));
-  box-shadow: 0 6px 16px rgba(14, 165, 233, 0.35);
+  box-shadow: 0 6px 14px rgba(14, 165, 233, 0.22);
 }
 
 .brand-icon .icon {
@@ -193,9 +194,9 @@ input {
 }
 
 .brand-text h1 {
-  font-size: 22px;
+  font-size: 21px;
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   background: linear-gradient(90deg, var(--water-500), var(--sleep-500));
   -webkit-background-clip: text;
   background-clip: text;
@@ -204,8 +205,40 @@ input {
 
 .subtitle {
   margin: 2px 0 0;
-  font-size: 13px;
+  font-size: 12.5px;
   color: var(--text-secondary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.source-link {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s ease, color 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
+}
+
+.source-link:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--water-500) 36%, var(--border));
+  background: color-mix(in srgb, var(--water-500) 8%, var(--surface));
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .icon-btn {
@@ -235,39 +268,73 @@ input {
   color: var(--text-secondary);
 }
 
-.theme-toggle-group {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 4px;
-  border-radius: 999px;
-  background: var(--surface-soft);
-  border: 1px solid var(--border);
-}
-
-.theme-seg {
-  width: 34px;
-  height: 34px;
+.theme-toggle {
+  width: 42px;
+  height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-muted);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-soft) 82%, transparent);
+  color: var(--text-secondary);
+  transition: transform 0.18s ease, color 0.18s ease, border-color 0.18s ease, background 0.18s ease, box-shadow 0.18s ease;
 }
 
-.theme-seg:hover {
+.theme-toggle:hover,
+.source-link:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--water-500) 36%, var(--border));
+  background: color-mix(in srgb, var(--water-500) 8%, var(--surface));
   color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
 }
 
-.theme-seg.active {
-  background: var(--text-primary);
-  color: var(--surface);
+.theme-icon-dark {
+  display: none;
 }
 
-[data-theme="dark"] .theme-seg.active {
+[data-theme="dark"] .theme-toggle {
   background: linear-gradient(140deg, var(--water-500), var(--sleep-500));
   color: #fff;
+}
+
+[data-theme="dark"] .theme-toggle:hover,
+[data-theme="dark"] .source-link:hover {
+  border-color: color-mix(in srgb, var(--sleep-500) 46%, var(--border));
+  background: color-mix(in srgb, var(--sleep-500) 12%, var(--surface));
+}
+
+[data-theme="dark"] .theme-icon-light {
+  display: none;
+}
+
+[data-theme="dark"] .theme-icon-dark {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    padding: 12px 16px;
+  }
+
+  .brand-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-text h1 {
+    font-size: 18px;
+  }
+
+  .subtitle {
+    display: none;
+  }
+
+  .source-link {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 /* =========================================================

@@ -146,8 +146,7 @@
     confirmResetAll: document.getElementById('confirmResetAll'),
 
     // Theme
-    lightModeBtn: document.getElementById('lightModeBtn'),
-    darkModeBtn: document.getElementById('darkModeBtn')
+    themeToggleBtn: document.getElementById('themeToggleBtn')
   };
 
   /* =========================================================
@@ -607,15 +606,18 @@
     } else {
       document.documentElement.removeAttribute('data-theme');
     }
-    el.lightModeBtn.setAttribute('aria-pressed', String(!isDark));
-    el.darkModeBtn.setAttribute('aria-pressed', String(isDark));
-    el.lightModeBtn.classList.toggle('active', !isDark);
-    el.darkModeBtn.classList.toggle('active', isDark);
+    el.themeToggleBtn.setAttribute('aria-pressed', String(isDark));
+    el.themeToggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
   }
 
   function setTheme(theme) {
     localStorage.setItem(THEME_KEY, theme);
     applyTheme(theme);
+  }
+
+  function toggleTheme() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    setTheme(isDark ? 'light' : 'dark');
   }
 
   /* =========================================================
@@ -697,8 +699,7 @@
     });
 
     // Theme toggle
-    el.lightModeBtn.addEventListener('click', () => setTheme('light'));
-    el.darkModeBtn.addEventListener('click', () => setTheme('dark'));
+    el.themeToggleBtn.addEventListener('click', toggleTheme);
 
     // Initial paint
     refreshAll();
