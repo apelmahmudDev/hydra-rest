@@ -1,0 +1,62 @@
+﻿/* =========================================================
+   HydraRest â€” Water & Sleep Tracker
+   Design tokens (light mode default, dark mode via [data-theme="dark"])
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Water â€” blue/cyan */
+  --water-500: #0ea5e9;
+  --water-400: #38bdf8;
+  --water-300: #7dd3fc;
+
+  /* Sleep â€” purple/indigo */
+  --sleep-500: #7c6cf0;
+  --sleep-400: #9b8afb;
+  --sleep-300: #c4b8fd;
+
+  /* Status */
+  --success-500: #22c55e;
+  --success-100: #dcfce7;
+  --warning-500: #f97316;
+  --danger-500: #ef4444;
+  --danger-100: #fee2e2;
+
+  /* Surfaces â€” light mode */
+  --bg: #f3f6fb;
+  --bg-gradient: radial-gradient(circle at 10% 0%, #e9f4ff 0%, #f3f6fb 45%, #f6f2ff 100%);
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --border: #e6ebf2;
+  --text-primary: #1a2233;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+
+  --shadow-sm: 0 2px 6px rgba(30, 41, 59, 0.045);
+  --shadow-md: 0 6px 18px rgba(30, 41, 59, 0.06);
+  --shadow-lg: 0 12px 30px rgba(30, 41, 59, 0.09);
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+
+  --font-main: 'Manrope', sans-serif;
+  --font-body: var(--font-main);
+}
+
+[data-theme="dark"] {
+  --bg: #0f1420;
+  --bg-gradient: radial-gradient(circle at 15% 0%, #17203a 0%, #0f1420 45%, #170f2c 100%);
+  --surface: #171e2f;
+  --surface-soft: #1c2438;
+  --border: #2a3348;
+  --text-primary: #eef2f8;
+  --text-secondary: #a5b0c4;
+  --text-muted: #6b7891;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 8px 22px rgba(0, 0, 0, 0.26);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.34);
+}
+

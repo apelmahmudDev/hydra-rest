@@ -1,0 +1,58 @@
+﻿/* =========================================================
+   Streak card
+   ========================================================= */
+.streak-grid {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.streak-box {
+  flex: 1;
+  text-align: center;
+  padding: 16px 8px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(160deg, color-mix(in srgb, var(--warning-500) 10%, var(--surface-soft)), var(--surface-soft));
+}
+
+.streak-value {
+  display: block;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--warning-500);
+}
+
+.streak-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.streak-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.streak-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--warning-500) 14%, var(--surface-soft)), var(--surface-soft));
+  color: var(--warning-500);
+  margin-bottom: 10px;
+}
+
+.streak-tip .icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.streak-tip p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+

@@ -1,0 +1,153 @@
+﻿/* =========================================================
+   Calendar
+   ========================================================= */
+.calendar-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+@media (min-width: 900px) {
+  .calendar-section {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: start;
+  }
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 14px;
+  color: var(--text-primary);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.calendar-header h2 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.legend-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 6px;
+  border-radius: 999px;
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+}
+
+.legend-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.legend-icon .icon-xs {
+  width: 10px;
+  height: 10px;
+}
+
+.legend-both { background: var(--success-500); }
+.legend-water { background: var(--water-500); }
+.legend-sleep { background: var(--sleep-500); }
+.legend-missed { background: var(--danger-500); }
+
+/* Small colored dot used in the weekly-summary chart legend */
+.legend-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cal-day {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 10px;
+  font-size: 12px;
+  background: var(--surface-soft);
+  border: 1px solid transparent;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
+.cal-day.empty {
+  background: transparent;
+  cursor: default;
+}
+
+.cal-day:not(.empty) {
+  cursor: pointer;
+}
+
+.cal-day:not(.empty):hover {
+  transform: translateY(-2px);
+  border-color: var(--sleep-400);
+}
+
+.cal-day.is-today {
+  border-color: var(--water-500);
+  font-weight: 800;
+}
+
+.cal-day.selected {
+  background: color-mix(in srgb, var(--sleep-500) 16%, var(--surface));
+  border-color: var(--sleep-500);
+}
+
+.cal-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.cal-dot.both { background: var(--success-500); }
+.cal-dot.water { background: var(--water-500); }
+.cal-dot.sleep { background: var(--sleep-500); }
+.cal-dot.missed { background: var(--danger-500); }
+

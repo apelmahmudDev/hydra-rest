@@ -1,0 +1,44 @@
+﻿/* =========================================================
+   Stats
+   ========================================================= */
+.stat-row {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  background: var(--surface-soft);
+}
+
+.status-met {
+  background: var(--success-100);
+  color: var(--success-500);
+}
+
+.status-missed {
+  background: var(--danger-100);
+  color: var(--danger-500);
+}
+

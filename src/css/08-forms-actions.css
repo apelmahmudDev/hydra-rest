@@ -1,0 +1,120 @@
+﻿/* =========================================================
+   Quick actions / inputs
+   ========================================================= */
+.card input[type="number"] {
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 4px 0 8px;
+}
+
+.quick-actions {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.quick-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 10px 6px;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--water-500) 12%, var(--surface));
+  color: var(--water-500);
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.quick-btn:hover {
+  background: color-mix(in srgb, var(--water-500) 22%, var(--surface));
+  transform: translateY(-2px);
+}
+
+.quick-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.custom-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.input-with-suffix {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.input-with-suffix input[type="number"] {
+  width: 100%;
+  padding-right: 48px;
+}
+
+.input-suffix {
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 12px;
+  line-height: 1;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+.editable-field {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.btn-secondary {
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--text-primary);
+  color: var(--surface);
+  font-weight: 700;
+  font-size: 13px;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.btn-secondary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+.goal-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--border);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.goal-row input {
+  width: 90px;
+  padding: 6px 24px 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+  color: var(--text-primary);
+  text-align: center;
+}
+

@@ -1,0 +1,53 @@
+﻿/* =========================================================
+   Reset section & danger buttons
+   ========================================================= */
+.reset-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 26px;
+}
+
+.btn-danger, .btn-danger-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+  transition: transform 0.16s ease, background 0.16s ease, border-color 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.btn-danger {
+  background: var(--danger-500);
+  color: #fff;
+}
+
+.btn-danger:hover { transform: translateY(-1px); opacity: 0.9; }
+
+.btn-danger-outline {
+  background: color-mix(in srgb, var(--danger-500) 7%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--danger-500) 44%, var(--border));
+  color: color-mix(in srgb, var(--danger-500) 90%, var(--text-primary));
+}
+
+.btn-danger-outline:hover {
+  transform: translateY(-1px);
+  background: var(--danger-500);
+  border-color: var(--danger-500);
+  color: #fff;
+}
+
+[data-theme="dark"] .btn-danger-outline {
+  background: color-mix(in srgb, var(--danger-500) 10%, var(--surface));
+  border-color: color-mix(in srgb, var(--danger-500) 48%, var(--border));
+  color: #ff8a8a;
+}
+
+[data-theme="dark"] .btn-danger-outline:hover {
+  background: color-mix(in srgb, var(--danger-500) 88%, #111827);
+  color: #fff;
+}
+

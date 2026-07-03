@@ -1,0 +1,89 @@
+﻿/* =========================================================
+   Day detail panel
+   ========================================================= */
+.day-detail-content {
+  font-size: 14px;
+  color: var(--text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.empty-hint {
+  color: var(--text-muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.detail-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-soft);
+}
+
+.detail-row-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.detail-row-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.detail-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.detail-row-top strong:first-child {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.detail-row-value {
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.detail-row-text small {
+  color: var(--text-muted);
+}
+
+.detail-progress-track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.detail-progress-fill {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+.detail-progress-water { background: var(--water-500); }
+.detail-progress-sleep { background: var(--sleep-500); }
+
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
