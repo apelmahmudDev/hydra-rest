@@ -124,6 +124,8 @@
     sleepGoalDays: document.getElementById('sleepGoalDays'),
     perfectDays: document.getElementById('perfectDays'),
     weeklyBars: document.getElementById('weeklyBars'),
+    weeklyAxisWater: document.getElementById('weeklyAxisWater'),
+    weeklyAxisSleep: document.getElementById('weeklyAxisSleep'),
 
     // Calendar
     calendarMonthLabel: document.getElementById('calendarMonthLabel'),
@@ -144,7 +146,8 @@
     confirmResetAll: document.getElementById('confirmResetAll'),
 
     // Theme
-    darkModeToggle: document.getElementById('darkModeToggle')
+    lightModeBtn: document.getElementById('lightModeBtn'),
+    darkModeBtn: document.getElementById('darkModeBtn')
   };
 
   /* =========================================================
@@ -320,41 +323,53 @@
     renderWeeklyBars(days);
   }
 
-  // Draws a simple CSS-only stacked bar (water portion + sleep portion) per day.
+  // Draws a grouped bar chart (water bar + sleep bar per day), each scaled to
+  // its own goal, plus simple axis labels derived from the current goals.
   function renderWeeklyBars(days) {
     el.weeklyBars.innerHTML = '';
 
+    const waterMax = goals.water > 0 ? goals.water : 1;
+    const sleepMax = goals.sleep > 0 ? goals.sleep : 1;
+    const todayKey = getTodayDate();
+
     days.forEach((key) => {
       const entry = getEntry(appData, key);
-      const waterPct = Math.min(100, goals.water > 0 ? (entry.water / goals.water) * 100 : 0);
-      const sleepPct = Math.min(100, goals.sleep > 0 ? (entry.sleep / goals.sleep) * 100 : 0);
+      const waterPct = Math.min(100, (entry.water / waterMax) * 100);
+      const sleepPct = Math.min(100, (entry.sleep / sleepMax) * 100);
 
       const col = document.createElement('div');
       col.className = 'weekly-bar-col';
 
-      const stack = document.createElement('div');
-      stack.className = 'weekly-bar-stack';
+      const group = document.createElement('div');
+      group.className = 'weekly-bar-group';
 
-      const waterSeg = document.createElement('div');
-      waterSeg.className = 'weekly-bar-seg weekly-bar-water';
-      waterSeg.style.height = `${waterPct / 2}%`;
+      const waterBar = document.createElement('div');
+      waterBar.className = 'weekly-bar weekly-bar-water';
+      waterBar.style.height = `${waterPct}%`;
 
-      const sleepSeg = document.createElement('div');
-      sleepSeg.className = 'weekly-bar-seg weekly-bar-sleep';
-      sleepSeg.style.height = `${sleepPct / 2}%`;
+      const sleepBar = document.createElement('div');
+      sleepBar.className = 'weekly-bar weekly-bar-sleep';
+      sleepBar.style.height = `${sleepPct}%`;
 
-      stack.appendChild(waterSeg);
-      stack.appendChild(sleepSeg);
+      group.appendChild(waterBar);
+      group.appendChild(sleepBar);
 
       const label = document.createElement('span');
       label.className = 'weekly-bar-day';
       const [, , d] = key.split('-');
       label.textContent = String(Number(d));
+      if (key === todayKey) label.classList.add('is-today-label');
 
-      col.appendChild(stack);
+      col.appendChild(group);
       col.appendChild(label);
       el.weeklyBars.appendChild(col);
     });
+
+    // Axis captions: goal / half-goal / zero for each metric.
+    el.weeklyAxisWater.innerHTML =
+      `<span>${waterMax}</span><span>${Math.round(waterMax / 2)}</span><span>0</span>`;
+    el.weeklyAxisSleep.innerHTML =
+      `<span>${sleepMax}</span><span>${Math.round((sleepMax / 2) * 10) / 10}</span><span>0</span>`;
   }
 
   /* =========================================================
@@ -442,29 +457,66 @@
   function selectDetailDate(dateKey) {
     selectedDetailDate = dateKey;
     const entry = getEntry(appData, dateKey);
+    const waterPct = Math.min(100, goals.water > 0 ? Math.round((entry.water / goals.water) * 100) : 0);
+    const sleepPct = Math.min(100, goals.sleep > 0 ? Math.round((entry.sleep / goals.sleep) * 100) : 0);
 
     el.dayDetailTitle.textContent = formatPrettyDate(dateKey);
     el.dayDetailContent.innerHTML = '';
 
-    const waterRow = document.createElement('div');
-    waterRow.className = 'detail-row';
-    waterRow.innerHTML = `<span>💧 Water</span><strong>${entry.water || 0} / ${goals.water} ml</strong>`;
+    const waterRow = buildDetailRow({
+      icon: 'icon-droplet',
+      iconClass: 'card-icon-water',
+      label: 'Water',
+      value: `${entry.water || 0} / ${goals.water} ml`,
+      percent: waterPct,
+      barClass: 'detail-progress-water'
+    });
 
-    const sleepRow = document.createElement('div');
-    sleepRow.className = 'detail-row';
-    sleepRow.innerHTML = `<span>🌙 Sleep</span><strong>${entry.sleep || 0} / ${goals.sleep} h</strong>`;
+    const sleepRow = buildDetailRow({
+      icon: 'icon-moon',
+      iconClass: 'card-icon-sleep',
+      label: 'Sleep',
+      value: `${entry.sleep || 0} / ${goals.sleep} h`,
+      percent: sleepPct,
+      barClass: 'detail-progress-sleep'
+    });
 
+    const perfect = bothGoalsMet(entry);
+    const hasData = entry.water || entry.sleep;
     const statusRow = document.createElement('div');
     statusRow.className = 'detail-row';
-    const statusText = bothGoalsMet(entry) ? 'Perfect day ✅' : (entry.water || entry.sleep ? 'Partial' : 'No data');
-    statusRow.innerHTML = `<span>Status</span><strong>${statusText}</strong>`;
+    statusRow.innerHTML = `
+      <span class="detail-row-icon ${perfect ? 'card-icon-weekly' : 'card-icon-streak'}">
+        <svg class="icon icon-sm"><use href="#${perfect ? 'icon-check' : 'icon-x'}"></use></svg>
+      </span>
+      <span class="detail-row-text">
+        <strong>${perfect ? 'Perfect day' : (hasData ? 'Partial day' : 'No data')}</strong>
+        <small>Status</small>
+      </span>`;
 
     el.dayDetailContent.appendChild(waterRow);
     el.dayDetailContent.appendChild(sleepRow);
     el.dayDetailContent.appendChild(statusRow);
 
-    el.resetDayBtn.hidden = !(entry.water || entry.sleep);
+    el.resetDayBtn.hidden = !hasData;
     renderCalendar(); // refresh selection highlight
+  }
+
+  // Builds one metric row for the day-detail panel: icon chip, value line, and a thin progress bar.
+  function buildDetailRow({ icon, iconClass, label, value, percent, barClass }) {
+    const row = document.createElement('div');
+    row.className = 'detail-row';
+    row.innerHTML = `
+      <span class="detail-row-icon ${iconClass}">
+        <svg class="icon icon-sm"><use href="#${icon}"></use></svg>
+      </span>
+      <span class="detail-row-text">
+        <span class="detail-row-top"><strong>${label}</strong><strong class="detail-row-value">${value}</strong></span>
+        <span class="detail-progress-track">
+          <span class="detail-progress-fill ${barClass}" style="width:${percent}%"></span>
+        </span>
+      </span>`;
+    return row;
   }
 
   /* =========================================================
@@ -545,20 +597,21 @@
      ========================================================= */
 
   function applyTheme(theme) {
-    if (theme === 'dark') {
+    const isDark = theme === 'dark';
+    if (isDark) {
       document.documentElement.setAttribute('data-theme', 'dark');
-      el.darkModeToggle.setAttribute('aria-pressed', 'true');
     } else {
       document.documentElement.removeAttribute('data-theme');
-      el.darkModeToggle.setAttribute('aria-pressed', 'false');
     }
+    el.lightModeBtn.setAttribute('aria-pressed', String(!isDark));
+    el.darkModeBtn.setAttribute('aria-pressed', String(isDark));
+    el.lightModeBtn.classList.toggle('active', !isDark);
+    el.darkModeBtn.classList.toggle('active', isDark);
   }
 
-  function toggleTheme() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    const next = isDark ? 'light' : 'dark';
-    localStorage.setItem(THEME_KEY, next);
-    applyTheme(next);
+  function setTheme(theme) {
+    localStorage.setItem(THEME_KEY, theme);
+    applyTheme(theme);
   }
 
   /* =========================================================
@@ -638,7 +691,8 @@
     });
 
     // Theme toggle
-    el.darkModeToggle.addEventListener('click', toggleTheme);
+    el.lightModeBtn.addEventListener('click', () => setTheme('light'));
+    el.darkModeBtn.addEventListener('click', () => setTheme('dark'));
 
     // Initial paint
     refreshAll();
