@@ -456,6 +456,11 @@
 
   function selectDetailDate(dateKey) {
     selectedDetailDate = dateKey;
+    renderDetailPanel(dateKey);
+    renderCalendar(); // refresh selection highlight
+  }
+
+  function renderDetailPanel(dateKey) {
     const entry = getEntry(appData, dateKey);
     const waterPct = Math.min(100, goals.water > 0 ? Math.round((entry.water / goals.water) * 100) : 0);
     const sleepPct = Math.min(100, goals.sleep > 0 ? Math.round((entry.sleep / goals.sleep) * 100) : 0);
@@ -499,7 +504,6 @@
     el.dayDetailContent.appendChild(statusRow);
 
     el.resetDayBtn.hidden = !hasData;
-    renderCalendar(); // refresh selection highlight
   }
 
   // Builds one metric row for the day-detail panel: icon chip, value line, and a thin progress bar.
@@ -624,6 +628,7 @@
     calculateStreaks();
     renderWeeklySummary();
     renderCalendar();
+    if (selectedDetailDate) renderDetailPanel(selectedDetailDate);
   }
 
   /* =========================================================
@@ -641,6 +646,7 @@
     // Goal inputs reflect saved goals
     el.waterGoalInput.value = goals.water;
     el.sleepGoalInput.value = goals.sleep;
+    selectedDetailDate = getTodayDate();
 
     // Water quick-add buttons
     document.querySelectorAll('.water-btn').forEach((btn) => {
